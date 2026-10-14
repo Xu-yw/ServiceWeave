@@ -1,0 +1,18 @@
+{
+  "version": "v2",
+  "frozen_at": "2026-09-24T21:51:54.577029+08:00",
+  "status": "samples_only_not_evaluated",
+  "sha256": {
+    "README.md": "de232cdf7baf1c421e2b9d0547ffca6b3e44eb7605d1bda8aa9ea30af1c7d2ae",
+    "对话质量/参考知识快照.json": "23269e5722b8a2ece78fafde3aca4f89996c0a093f56fd012028e172fd7f6d59",
+    "对话质量/对话评测请求.json": "f32ba84fe24dab340d4b7345d48282acf7255d79a7399bb02c85d2b2108f43e8",
+    "意图识别/意图开发集请求.json": "ec55671ffef575e35f50e877ed4eb29b4bebe0eab019dc1cfc5553f4b4aba127",
+    "意图识别/意图验收集请求.json": "c5a79034a570371c709e88d12b707a446c7c30290fb735aa4341e979aa0d3045",
+    "意图识别/拆分清单.json": "63642bda4fb20d7ba4fdb83d85f3c6d563c07e4e4df0ea4d8695772b486ae903",
+    "共用资料/样本与标注.json": "0ddf0cf99e186952d5aa3375e3a26311fff7218ba40e905fa24c664c38206d37",
+    "样本审阅.md": "9c0e0bb30a270c75e327ea852c0c02e0fd90f5b935f501a81511bb9ff38898ea",
+    "共用资料/静态校验结果.json": "f6e2e74fed93295f063feb8bfc0ec4baa762d1a10e425d3c722af3a262532c59"
+  },
+  "note": "ServiceWeave 发布版：更新说明与源码来源摘要，不改问题、标签、检查项和知识内容。后续内容变更须创建新版本。",
+  "layout_updated_at": "2026-10-14"
+}

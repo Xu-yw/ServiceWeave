@@ -1,0 +1,1355 @@
+{
+  "intent_cases": [
+    {
+      "message": "攒下的三百积分结账时能抵多少金额？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I001",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "金卡和银卡在购物优惠上有哪些区别？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I002",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "企业版能不能让几个部门各自管理成员？我想先了解产品功能。",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I003",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "你们答应昨天回复，今天还没有消息，这种处理态度让我很失望。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I004",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "先别转接，我只想说你们反复让我填同一份资料，体验实在糟糕。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I005",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "这笔单还没出库，收件人留错了，麻烦改成陈先生。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I006",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "预订的安装服务我想从周三挪到周六，请帮忙调整。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I007",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "上次问的取消先别办了，请保留预约，我会按时到。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I008",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "下午好呀，过来打个招呼。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I009",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "哈喽，小助手，今天也辛苦啦。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I010",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "这个问题一线处理不了，请交给主管复核并给我正式答复。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I011",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "普通客服已经回复过了，我仍有异议，请上报负责人处理。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I012",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "后台列表转圈很久才显示，切到另一条网络也一样，但没有错误提示。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I013",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "导出的表格中文全变成乱码了，页面里的文字却正常。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I014",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "筛选条件点了没有反应，其他按钮都能用，程序也没有退出。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I015",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "年度套餐到期后下一期账单从哪天开始计算？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I016",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "团队版账单按开通人数还是实际使用人数计费？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I017",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "旧手机号已经停用了，想把账号绑定的号码换成新的。",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I018",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "个人主页上的显示名称写错了，在哪里可以编辑？",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I019",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不用这个平台了，怎样永久删除我的账号和个人资料？",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I020",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "按你的步骤已经弄好了，这次解释得很清楚，感谢。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I021",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "刚刚那位同事很耐心，事情处理得也利索，替我谢谢他。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I022",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "订单 #A73190 付款后一直显示待处理，仓库开始备货了吗？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I023",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "昨天订的配件现在是待出库还是已经交给承运商了？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I024",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "订单 #B20468 页面同时出现已取消和处理中，哪一个才是当前状态？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I025",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "包裹到本市分拨中心两天了，轨迹没再往前走，能帮我查件吗？",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I026",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "运单 #Y60821 显示签收，可我和家人都没拿到东西。",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I027",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "周末也能安排送货吗？我只是了解服务时间，没有要查的包裹。",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I028",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "周一买的耳机还没拆封，现在不想要了，想退回商品和货款。",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I029",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "退回去的商品你们已经收到了，钱还没原路退回，要等多久？",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I030",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不用补发了，这次我只接受退钱，请告诉我申请入口。",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I031",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "报销凭证上的公司名称少了两个字，电子票据还能重新开具吗？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I032",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "订单 #C55281 想开公司抬头的增值税发票，需要提供哪些资料？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I033",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "收到的电子发票税号填错了，应该先红冲还是直接修改？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I034",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "点了一次付款，银行却出现两笔相同的支出记录，总共扣了两份。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I035",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "余额足够，支付页面仍提示交易未完成，试了两次都没成功。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I036",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "结算页写着实付 79 元，到账短信却扣了 99 元，差额怎么回事？",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I037",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "凌晨收到异地设备进入账号的提醒，那会儿我在睡觉，该先做什么？",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I038",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "有人冒充客服让我发短信验证码，我还没给，怎么保护账户？",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I039",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我并没有登不上，只是怀疑口令泄露了，想把所有设备踢下线。",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I040",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "登录入口提示 HTTP 401，换浏览器后还是进不了工作台。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I041",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "登录用的短信一直收不到，手机号能正常接电话，该怎么排查？",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I042",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "刚通过验证就被送回登录页，来回循环，始终进不了首页。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I043",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "打开附件预览，客户端就直接消失回到桌面，每次都这样。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I044",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "进入统计页面出现 HTTP 500，其他模块暂时可以访问。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I045",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "升级以后点保存就闪退，重启电脑仍然复现。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I046",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我不想继续和机器人聊了，能换真人接着沟通吗？",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I047",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "文字沟通太慢，请安排一位人工坐席接手这个会话。",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I048",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "就按那个来吧。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I049",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "蓝色星期八，纸飞机在喝咖啡。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I050",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "普通会员和银卡买东西的折扣一样吗？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I052",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "这款背包的面料能防小雨吗？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I053",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "优惠券能不能和店铺满减一起用？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I054",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "耳机有哪些颜色可以选择？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I055",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我先了解一下，礼品包装需要额外收费吗？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I058",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "客服每次都让我从头说一遍，这种服务实在让人受不了。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I059",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "说好今天给答复，结果又没人联系，你们太不守信用了。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I060",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "页面宣传和收到的东西差得太远了，我对这次购物很失望。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I062",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "之前答应的回访一直没有，处理问题这么拖拉吗？",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I064",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我暂时不退货，但你们包装得这么随便真的很差。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I065",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不是要找领导，我就是不认可刚才客服的态度。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I066",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "请取消明天下午的上门安装预约。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I069",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "这个商品到货以后麻烦提醒我一下。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I070",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我不想取消预约了，请把周五的安装安排保留下来。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I072",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "包裹还没发，帮我把收件电话最后一位由6改成8。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I073",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "之前选了礼品包装，现在请改回普通包装。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I075",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "早呀，客服同学。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I076",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "晚上好，来打个招呼。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I077",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "哈喽，今天也见面啦。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I079",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "Hello，下午好！",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I081",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "你好，第一次来这里。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I082",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "早上好呀～",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I083",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "一线的答复我不接受，请让售后主管重新审核。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I084",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "请把这个争议升级给负责人处理。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I085",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "普通坐席处理不了，帮我找有决定权的经理。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I086",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不是再换一个客服，我需要主管给正式处理意见。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I087",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "上一次已经找过人工了，这次请走二级复核。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I088",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "把这起投诉提交给客服管理人员吧。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I089",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "购物车数量按钮点了没反应，但页面没有退出。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I092",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "商品图片一直加载不出来，文字是正常的。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I093",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "网页滑动很卡，换了网络还是一样。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I095",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "通知开关每次保存后都会自动关掉，应用也没有闪退。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I098",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "会员自动续费是按自然月还是开通日期结算？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I099",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "年度会员中途升级，剩余月份的费用怎么折算？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I100",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "企业采购账单里的服务费是按件数计算的吗？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I101",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "能说明一下这个月账单里配送服务费的计算方式吗？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I102",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "会员续费账期的起止时间在哪里看？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I104",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "账单上写的含税金额和未税金额有什么区别？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I105",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "以后不用这个账号了，注销前要做什么？",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I109",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "怎么修改账号绑定的邮箱？原邮箱还能正常收信。",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I110",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我想关闭个人主页展示昵称的功能。",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I111",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "想把账户的默认语言从英文切换成中文。",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I113",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "刚才的操作已经成功了，谢谢你耐心指导。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I114",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "这次售后回复又快又清楚，体验很好。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I116",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "事情已经解决，我来专门说声谢谢。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I117",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不用再处理了，你给的方法很有用，问题好了。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I119",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "反馈一下，新的操作指引很好懂，我已经学会了。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I120",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "原本很着急，现在顺利解决了，感谢帮助。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I121",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "付款成功两小时了，这单仓库接到了吗？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I123",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我的预售订单什么时候开始出库？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I124",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "订单页面写着待审核，是还没安排仓库处理吗？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I125",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "取消申请发出去后，这笔订单目前算取消了吗？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I127",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "包裹不用帮我定位，我就想知道店里有没有发货。",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I129",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "快递从外地发出四天了，途中一直没有新记录。",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I130",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "加急配送一般需要几天？",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I133",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "家里没人，快递能先放到自提点吗？",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I135",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "寄到偏远县城需要另外加几天？",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I136",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "签收照片不是我家门口，东西也没有收到。",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I137",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "鞋子买大了，想连货一起退掉，应该怎么申请？",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I138",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "退款显示审核通过了，原来付款的卡上还没到账。",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I139",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "退回商品后，运费由谁承担？",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I141",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "别给我换新了，我希望直接返还货款。",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I142",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我下单六天了，未使用的商品还能退吗？",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I143",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "单位报销要发票，这笔购买记录可以申请电子票吗？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I146",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "开增值税专用发票要提供开户行吗？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I150",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "付款凭证收到了，正式发票在哪里下载？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I151",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我不是申请退款，只想补开上个月那单的发票。",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I152",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "纸质发票没收到，可以重新发一份电子版吗？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I153",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "银行短信说扣款了，结算页面却一直显示付款失败。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I154",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "支付按钮点了一次，银行卡扣了两次同样的钱。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I155",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "使用优惠券后应付58元，付款记录却是78元。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I156",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "分期付款确认以后一直提示支付处理中。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I159",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不是想退商品，是付款金额比确认页多了15元。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I161",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "陌生设备突然出现在我的登录记录里，怎么办？",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I162",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "有人打电话自称客服要验证码，我应该给吗？",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I163",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "怀疑密码被泄露了，怎么让其他设备退出？",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I164",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我没操作却收到修改密码的提醒，该如何保护账号？",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I166",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "想开两步验证，防止别人只拿到密码就进来。",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I167",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "输入账号密码后显示认证失败，进不了购物账号。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I170",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "短信验证成功后又跳回登录界面。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I171",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "登录时显示401，但是商品页面可以正常浏览。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I172",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "手机号没有停机，但登录验证码一直收不到。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I174",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "扫码登录显示成功，网页却仍然停在登录页。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I175",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "每次点击结算程序就崩溃，还没进入支付页面。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I179",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "刚升级完，一启动应用就自动关闭。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I181",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "程序提示发生致命错误，整个窗口都退出了。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I182",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不是卡顿，点开订单详情会让软件整个消失。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I183",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "服务器返回500 Internal Server Error，页面打不开。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I184",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "请帮我接通人工客服。",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I185",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "这些问题我想直接和真人聊。",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I186",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "能安排在线坐席接着处理吗？",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I188",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "请把本次会话转给人工服务。",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I190",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我打字讲不明白，能让真人协助吗？",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I191",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "机器人先停一下，我希望由人工接手。",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I192",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "还是那个。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I193",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "第二个吧。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I194",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "算了，就这样。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I195",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "？？？",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I196",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "紫色三角形正在唱数字。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I197",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "把太阳装进购物车。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I200",
+        "split": "development",
+        "dataset_version": "v2"
+      }
+    }
+  ],
+  "dialog_cases": []
+}

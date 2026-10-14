@@ -1,0 +1,455 @@
+{
+  "intent_cases": [
+    {
+      "message": "买这台咖啡机，包装里会附带清洁刷吗？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I051",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "购物积分年底统一失效，还是按获得日期计算？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I056",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "页面上写一年保修，电池也在保修范围内吗？",
+      "expected_intent": "query",
+      "context": {
+        "case_id": "I057",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我不需要转接，只想投诉刚才那个很敷衍的回复。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I061",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "别再给我复制同一段话了，我要反馈你们服务态度有问题。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I063",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "每次找售后都被推来推去，这种体验太糟糕了。",
+      "expected_intent": "complaint",
+      "context": {
+        "case_id": "I067",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "礼盒还没打包，帮我把贺卡上的称呼换成妈妈。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I068",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "帮我把送货前电话联系的要求备注到订单里。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I071",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "赠品我不需要了，请在打包前去掉。",
+      "expected_intent": "request",
+      "context": {
+        "case_id": "I074",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "嗨，你好啊。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I078",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "午安，祝你今天顺利。",
+      "expected_intent": "greeting",
+      "context": {
+        "case_id": "I080",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "需要有权限的负责人审查这件事，麻烦升级一下。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I090",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "请启动主管复核流程，并由负责人说明结论。",
+      "expected_intent": "escalation",
+      "context": {
+        "case_id": "I091",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "搜索框输入中文后变成一串乱码了。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I094",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "收藏按钮显示成功，刷新以后又没收藏上。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I096",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我能正常登录，但上传图片的进度始终停在一半。",
+      "expected_intent": "technical",
+      "context": {
+        "case_id": "I097",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我不是要退钱，只想看清账单每一项分别是什么。",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I103",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "家庭会员增加一个成员，月费按什么规则变化？",
+      "expected_intent": "billing",
+      "context": {
+        "case_id": "I106",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "个人资料里的出生日期填错了，应该在哪里更正？",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I107",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我想把账户头像换成自己的照片。",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I108",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "实名认证的名字少了一个字，怎么申请更正？",
+      "expected_intent": "account",
+      "context": {
+        "case_id": "I112",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "照你说的处理以后恢复正常，给你点个赞。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I115",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "刚才那位客服解释很专业，麻烦帮我表扬一下。",
+      "expected_intent": "feedback",
+      "context": {
+        "case_id": "I118",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "订单 #S31842 是还在备货，还是已经交给快递了？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I122",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "我不催快递，只想确认订单有没有生成成功。",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I126",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "订单号 #C81062 现在是已完成还是待收货？",
+      "expected_intent": "order_status",
+      "context": {
+        "case_id": "I128",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "包裹被送到了隔壁小区，该找谁处理？",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I131",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "同城配送能不能晚上送到？",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I132",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "运单显示正在派送，今天还有可能送达吗？",
+      "expected_intent": "logistics",
+      "context": {
+        "case_id": "I134",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "商品有裂痕，我想退货并退回付款金额。",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I140",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "撤销退款申请之后，还能再次发起退货吗？",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I144",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "钱能退到另一个账户吗，还是只能退到原来的付款渠道？",
+      "expected_intent": "refund",
+      "context": {
+        "case_id": "I145",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "开票抬头应该填公司全称还是简称？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I147",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "电子票据已经开错税号，需要红冲重开吗？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I148",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "能把个人抬头的发票改成公司抬头吗？",
+      "expected_intent": "invoice",
+      "context": {
+        "case_id": "I149",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "网银已经扣钱，但商店还让我重新支付。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I157",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "付款时提示交易被拒绝，余额明明够用。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I158",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "同一笔交易在钱包里出现了两条成功记录。",
+      "expected_intent": "payment_issue",
+      "context": {
+        "case_id": "I160",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "账户里多了不是我添加的收货地址，担心被别人用过。",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I165",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "朋友拿到了我的验证码，账号需要马上做什么处理？",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I168",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "还能正常进入账号，但登录历史里有陌生城市。",
+      "expected_intent": "account_security",
+      "context": {
+        "case_id": "I169",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "刚登录几秒就提示会话过期，反复要我重新验证。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I173",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "密码已经重置过，还是提示凭证不正确。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I176",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "同一个账号在电脑能进，手机一直提示登录验证失败。",
+      "expected_intent": "technical_login",
+      "context": {
+        "case_id": "I177",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "打开商品详情后应用直接退回手机桌面。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I178",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "进入售后页面直接显示HTTP 500。",
+      "expected_intent": "technical_crash",
+      "context": {
+        "case_id": "I180",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不要机器人继续回复了，换个人来接待吧。",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I187",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "不需要主管，普通人工客服帮我看看就行。",
+      "expected_intent": "human_handoff",
+      "context": {
+        "case_id": "I189",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "帮我证明一个数学定理。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I198",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    },
+    {
+      "message": "写一首描写海边的诗。",
+      "expected_intent": "other",
+      "context": {
+        "case_id": "I199",
+        "split": "holdout",
+        "dataset_version": "v2"
+      }
+    }
+  ],
+  "dialog_cases": []
+}

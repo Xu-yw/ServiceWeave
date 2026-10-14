@@ -1,0 +1,28 @@
+# 凭据与本地配置
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# 依赖、缓存与构建产物
+.venv/
+venv/
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# 运行数据和离线评测输出
+data/
+logs/
+*.log
+*.sqlite3
+backend/evaluation/结果/
+backend/evaluation/归档/
+# 本机编辑器与系统文件
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

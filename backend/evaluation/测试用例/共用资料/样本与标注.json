@@ -1,0 +1,2830 @@
+{
+  "metadata": {
+    "version": "v2",
+    "created": "2026-09-24",
+    "source": "助手合成，非真实用户日志，非独立人工盲标",
+    "status": "样本已构造并通过静态校验；未运行评测",
+    "intent_count": 200,
+    "intent_class_count": 19,
+    "development_count": 150,
+    "holdout_count": 50,
+    "dialog_count": 30,
+    "dialog_turn_count": 60,
+    "holdout_rule": "固定种子20260924，按类别从新增150条中预留50条；仅最终验收时运行，不参与调参",
+    "scoring_version": "v2拟定口径，评测代码尚未接入",
+    "reference_snapshot": "仓库默认文档；运行前核对实际知识库",
+    "v1_source_sha256": "ccd0281b21739abd03fd7e014832c52f19a3efd9b4941b1b734a2772bb111658",
+    "class_counts": {
+      "query": 11,
+      "complaint": 11,
+      "request": 11,
+      "greeting": 10,
+      "escalation": 10,
+      "technical": 10,
+      "billing": 10,
+      "account": 10,
+      "feedback": 10,
+      "order_status": 11,
+      "logistics": 11,
+      "refund": 11,
+      "invoice": 11,
+      "payment_issue": 11,
+      "account_security": 11,
+      "technical_login": 11,
+      "technical_crash": 10,
+      "human_handoff": 10,
+      "other": 10
+    },
+    "label_policy": "单意图按当前主要诉求；具体类别优先通用类；收件信息修改归request；在途配送安排归logistics；负责人复核归escalation；普通坐席归human_handoff；按项目类别定义将HTTP500归technical_crash。"
+  },
+  "intent_samples": [
+    {
+      "id": "I001",
+      "message": "攒下的三百积分结账时能抵多少金额？",
+      "expected_intent": "query",
+      "rationale": "查询积分使用规则，不涉及异常扣款或具体操作。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I002",
+      "message": "金卡和银卡在购物优惠上有哪些区别？",
+      "expected_intent": "query",
+      "rationale": "比较会员权益，归为一般信息咨询。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I003",
+      "message": "企业版能不能让几个部门各自管理成员？我想先了解产品功能。",
+      "expected_intent": "query",
+      "rationale": "产品能力咨询，未报告技术故障或请求更改账户。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I004",
+      "message": "你们答应昨天回复，今天还没有消息，这种处理态度让我很失望。",
+      "expected_intent": "complaint",
+      "rationale": "表达不满，未要求转接或升级。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I005",
+      "message": "先别转接，我只想说你们反复让我填同一份资料，体验实在糟糕。",
+      "expected_intent": "complaint",
+      "rationale": "明确否定转接，核心是服务体验不满。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I006",
+      "message": "这笔单还没出库，收件人留错了，麻烦改成陈先生。",
+      "expected_intent": "request",
+      "rationale": "要求修改收件信息；并非查询订单进度。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I007",
+      "message": "预订的安装服务我想从周三挪到周六，请帮忙调整。",
+      "expected_intent": "request",
+      "rationale": "要求调整服务安排，没有更具体的意图类别。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I008",
+      "message": "上次问的取消先别办了，请保留预约，我会按时到。",
+      "expected_intent": "request",
+      "rationale": "以当前保留预约的操作请求为准，识别否定表达。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I009",
+      "message": "下午好呀，过来打个招呼。",
+      "expected_intent": "greeting",
+      "rationale": "只有寒暄，没有业务诉求。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I010",
+      "message": "哈喽，小助手，今天也辛苦啦。",
+      "expected_intent": "greeting",
+      "rationale": "问候性寒暄，未评价已发生的服务结果。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I011",
+      "message": "这个问题一线处理不了，请交给主管复核并给我正式答复。",
+      "expected_intent": "escalation",
+      "rationale": "明确要求主管升级处理；普通人工转接使用human_handoff。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I012",
+      "message": "普通客服已经回复过了，我仍有异议，请上报负责人处理。",
+      "expected_intent": "escalation",
+      "rationale": "要求上报更高处理层级。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I013",
+      "message": "后台列表转圈很久才显示，切到另一条网络也一样，但没有错误提示。",
+      "expected_intent": "technical",
+      "rationale": "加载性能问题，不属于登录失败或崩溃。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I014",
+      "message": "导出的表格中文全变成乱码了，页面里的文字却正常。",
+      "expected_intent": "technical",
+      "rationale": "导出编码故障，无具体登录或崩溃线索。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I015",
+      "message": "筛选条件点了没有反应，其他按钮都能用，程序也没有退出。",
+      "expected_intent": "technical",
+      "rationale": "局部功能异常，排除程序崩溃。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I016",
+      "message": "年度套餐到期后下一期账单从哪天开始计算？",
+      "expected_intent": "billing",
+      "rationale": "询问计费周期，未涉及发票、退款或支付异常。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I017",
+      "message": "团队版账单按开通人数还是实际使用人数计费？",
+      "expected_intent": "billing",
+      "rationale": "询问计费口径，使用账单大类。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I018",
+      "message": "旧手机号已经停用了，想把账号绑定的号码换成新的。",
+      "expected_intent": "account",
+      "rationale": "修改绑定资料，未报告盗号风险。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I019",
+      "message": "个人主页上的显示名称写错了，在哪里可以编辑？",
+      "expected_intent": "account",
+      "rationale": "账户资料维护，优先于一般查询。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I020",
+      "message": "不用这个平台了，怎样永久删除我的账号和个人资料？",
+      "expected_intent": "account",
+      "rationale": "账户注销，归账户管理。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I021",
+      "message": "按你的步骤已经弄好了，这次解释得很清楚，感谢。",
+      "expected_intent": "feedback",
+      "rationale": "问题解决后的明确正向反馈。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I022",
+      "message": "刚刚那位同事很耐心，事情处理得也利索，替我谢谢他。",
+      "expected_intent": "feedback",
+      "rationale": "对已发生服务给出正向评价。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I023",
+      "message": "订单 #A73190 付款后一直显示待处理，仓库开始备货了吗？",
+      "expected_intent": "order_status",
+      "rationale": "询问履约处理阶段，尚未进入运输。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I024",
+      "message": "昨天订的配件现在是待出库还是已经交给承运商了？",
+      "expected_intent": "order_status",
+      "rationale": "查询具体订单是否发出；未查询在途物流。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I025",
+      "message": "订单 #B20468 页面同时出现已取消和处理中，哪一个才是当前状态？",
+      "expected_intent": "order_status",
+      "rationale": "查询相互矛盾的订单状态。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I026",
+      "message": "包裹到本市分拨中心两天了，轨迹没再往前走，能帮我查件吗？",
+      "expected_intent": "logistics",
+      "rationale": "货物已经运输，核心是物流停滞。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I027",
+      "message": "运单 #Y60821 显示签收，可我和家人都没拿到东西。",
+      "expected_intent": "logistics",
+      "rationale": "物流签收异常，不是仓库处理状态。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I028",
+      "message": "周末也能安排送货吗？我只是了解服务时间，没有要查的包裹。",
+      "expected_intent": "logistics",
+      "rationale": "细粒度物流域包括配送服务规则咨询。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I029",
+      "message": "周一买的耳机还没拆封，现在不想要了，想退回商品和货款。",
+      "expected_intent": "refund",
+      "rationale": "明确退货退款诉求，不需要依赖原文出现退款二字。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I030",
+      "message": "退回去的商品你们已经收到了，钱还没原路退回，要等多久？",
+      "expected_intent": "refund",
+      "rationale": "询问退货后的退款进度。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I031",
+      "message": "不用补发了，这次我只接受退钱，请告诉我申请入口。",
+      "expected_intent": "refund",
+      "rationale": "否定补发，当前主要诉求是退款。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I032",
+      "message": "报销凭证上的公司名称少了两个字，电子票据还能重新开具吗？",
+      "expected_intent": "invoice",
+      "rationale": "根据公司名称与电子开票语境识别发票更正。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I033",
+      "message": "订单 #C55281 想开公司抬头的增值税发票，需要提供哪些资料？",
+      "expected_intent": "invoice",
+      "rationale": "发票开具，不是订单状态查询。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I034",
+      "message": "收到的电子发票税号填错了，应该先红冲还是直接修改？",
+      "expected_intent": "invoice",
+      "rationale": "发票更正流程。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I035",
+      "message": "点了一次付款，银行却出现两笔相同的支出记录，总共扣了两份。",
+      "expected_intent": "payment_issue",
+      "rationale": "重复支付异常，未以退货退款作为主要诉求。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I036",
+      "message": "余额足够，支付页面仍提示交易未完成，试了两次都没成功。",
+      "expected_intent": "payment_issue",
+      "rationale": "支付失败，优先于技术故障大类。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I037",
+      "message": "结算页写着实付 79 元，到账短信却扣了 99 元，差额怎么回事？",
+      "expected_intent": "payment_issue",
+      "rationale": "应付与扣款金额不一致。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I038",
+      "message": "凌晨收到异地设备进入账号的提醒，那会儿我在睡觉，该先做什么？",
+      "expected_intent": "account_security",
+      "rationale": "非本人访问风险，归账户安全。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I039",
+      "message": "有人冒充客服让我发短信验证码，我还没给，怎么保护账户？",
+      "expected_intent": "account_security",
+      "rationale": "防诈骗与账户保护，验证码不是登录失败诉求。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I040",
+      "message": "我并没有登不上，只是怀疑口令泄露了，想把所有设备踢下线。",
+      "expected_intent": "account_security",
+      "rationale": "明确排除登录故障，核心是泄露后的账户保护。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I041",
+      "message": "登录入口提示 HTTP 401，换浏览器后还是进不了工作台。",
+      "expected_intent": "technical_login",
+      "rationale": "认证失败导致无法登录。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I042",
+      "message": "登录用的短信一直收不到，手机号能正常接电话，该怎么排查？",
+      "expected_intent": "technical_login",
+      "rationale": "登录认证步骤失败，未报告安全事件。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I043",
+      "message": "刚通过验证就被送回登录页，来回循环，始终进不了首页。",
+      "expected_intent": "technical_login",
+      "rationale": "登录循环故障，不是通用加载慢。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I044",
+      "message": "打开附件预览，客户端就直接消失回到桌面，每次都这样。",
+      "expected_intent": "technical_crash",
+      "rationale": "程序意外退出属于崩溃。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I045",
+      "message": "进入统计页面出现 HTTP 500，其他模块暂时可以访问。",
+      "expected_intent": "technical_crash",
+      "rationale": "明确服务端500故障，按该项目细粒度类别归类。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I046",
+      "message": "升级以后点保存就闪退，重启电脑仍然复现。",
+      "expected_intent": "technical_crash",
+      "rationale": "可复现的应用崩溃。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I047",
+      "message": "我不想继续和机器人聊了，能换真人接着沟通吗？",
+      "expected_intent": "human_handoff",
+      "rationale": "要求普通人工接待，未要求更高层级。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I048",
+      "message": "文字沟通太慢，请安排一位人工坐席接手这个会话。",
+      "expected_intent": "human_handoff",
+      "rationale": "直接请求人工转接。",
+      "case_type": "常规",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I049",
+      "message": "就按那个来吧。",
+      "expected_intent": "other",
+      "rationale": "无前文且指代不明，无法确定具体业务意图。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I050",
+      "message": "蓝色星期八，纸飞机在喝咖啡。",
+      "expected_intent": "other",
+      "rationale": "无法辨识客服业务诉求的无关表达。",
+      "case_type": "边界",
+      "annotation_status": "原v1标签保留；待用户独立审阅",
+      "origin": "v1",
+      "split": "development"
+    },
+    {
+      "id": "I051",
+      "message": "买这台咖啡机，包装里会附带清洁刷吗？",
+      "expected_intent": "query",
+      "rationale": "询问商品配置，不要求执行操作。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I052",
+      "message": "普通会员和银卡买东西的折扣一样吗？",
+      "expected_intent": "query",
+      "rationale": "咨询会员权益，不涉及实际扣款异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I053",
+      "message": "这款背包的面料能防小雨吗？",
+      "expected_intent": "query",
+      "rationale": "咨询商品属性。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I054",
+      "message": "优惠券能不能和店铺满减一起用？",
+      "expected_intent": "query",
+      "rationale": "咨询优惠规则，不查询支付交易。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I055",
+      "message": "耳机有哪些颜色可以选择？",
+      "expected_intent": "query",
+      "rationale": "咨询商品可选规格。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I056",
+      "message": "购物积分年底统一失效，还是按获得日期计算？",
+      "expected_intent": "query",
+      "rationale": "咨询积分规则，不是账户资料修改。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I057",
+      "message": "页面上写一年保修，电池也在保修范围内吗？",
+      "expected_intent": "query",
+      "rationale": "咨询售后保障范围，没有报修或退款操作诉求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I058",
+      "message": "我先了解一下，礼品包装需要额外收费吗？",
+      "expected_intent": "query",
+      "rationale": "咨询服务价格，尚未产生账单或扣款争议。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I059",
+      "message": "客服每次都让我从头说一遍，这种服务实在让人受不了。",
+      "expected_intent": "complaint",
+      "rationale": "核心是服务不满，未要求人工或主管。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I060",
+      "message": "说好今天给答复，结果又没人联系，你们太不守信用了。",
+      "expected_intent": "complaint",
+      "rationale": "表达履约沟通不满，无具体订单查询。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I061",
+      "message": "我不需要转接，只想投诉刚才那个很敷衍的回复。",
+      "expected_intent": "complaint",
+      "rationale": "明确排除人工转接，保留投诉意图。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I062",
+      "message": "页面宣传和收到的东西差得太远了，我对这次购物很失望。",
+      "expected_intent": "complaint",
+      "rationale": "表达商品体验不满，未提出退货退款。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I063",
+      "message": "别再给我复制同一段话了，我要反馈你们服务态度有问题。",
+      "expected_intent": "complaint",
+      "rationale": "负向反馈按投诉类别处理。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I064",
+      "message": "之前答应的回访一直没有，处理问题这么拖拉吗？",
+      "expected_intent": "complaint",
+      "rationale": "针对服务效率投诉。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I065",
+      "message": "我暂时不退货，但你们包装得这么随便真的很差。",
+      "expected_intent": "complaint",
+      "rationale": "明确否定退货，主要表达不满。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I066",
+      "message": "不是要找领导，我就是不认可刚才客服的态度。",
+      "expected_intent": "complaint",
+      "rationale": "排除升级主管，主要为投诉。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I067",
+      "message": "每次找售后都被推来推去，这种体验太糟糕了。",
+      "expected_intent": "complaint",
+      "rationale": "服务体验投诉，无明确转接操作。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I068",
+      "message": "礼盒还没打包，帮我把贺卡上的称呼换成妈妈。",
+      "expected_intent": "request",
+      "rationale": "请求修改礼品信息，无更具体细粒度类别。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I069",
+      "message": "请取消明天下午的上门安装预约。",
+      "expected_intent": "request",
+      "rationale": "请求取消服务，不涉及退款。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I070",
+      "message": "这个商品到货以后麻烦提醒我一下。",
+      "expected_intent": "request",
+      "rationale": "请求设置到货提醒，不查询订单状态。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I071",
+      "message": "帮我把送货前电话联系的要求备注到订单里。",
+      "expected_intent": "request",
+      "rationale": "请求增加订单备注，而非查询物流。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I072",
+      "message": "我不想取消预约了，请把周五的安装安排保留下来。",
+      "expected_intent": "request",
+      "rationale": "识别否定取消，当前仍是操作请求。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I073",
+      "message": "包裹还没发，帮我把收件电话最后一位由6改成8。",
+      "expected_intent": "request",
+      "rationale": "请求修改收件信息，按固定边界归request。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I074",
+      "message": "赠品我不需要了，请在打包前去掉。",
+      "expected_intent": "request",
+      "rationale": "请求调整打包内容。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I075",
+      "message": "之前选了礼品包装，现在请改回普通包装。",
+      "expected_intent": "request",
+      "rationale": "请求变更包装选择，无退款诉求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I076",
+      "message": "早呀，客服同学。",
+      "expected_intent": "greeting",
+      "rationale": "单纯问候。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I077",
+      "message": "晚上好，来打个招呼。",
+      "expected_intent": "greeting",
+      "rationale": "没有业务诉求的问候。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I078",
+      "message": "嗨，你好啊。",
+      "expected_intent": "greeting",
+      "rationale": "单纯问候。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I079",
+      "message": "哈喽，今天也见面啦。",
+      "expected_intent": "greeting",
+      "rationale": "寒暄，不评价服务结果。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I080",
+      "message": "午安，祝你今天顺利。",
+      "expected_intent": "greeting",
+      "rationale": "祝福式问候。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I081",
+      "message": "Hello，下午好！",
+      "expected_intent": "greeting",
+      "rationale": "中英混合问候。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I082",
+      "message": "你好，第一次来这里。",
+      "expected_intent": "greeting",
+      "rationale": "初次见面寒暄，未提出业务问题。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I083",
+      "message": "早上好呀～",
+      "expected_intent": "greeting",
+      "rationale": "口语问候。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I084",
+      "message": "一线的答复我不接受，请让售后主管重新审核。",
+      "expected_intent": "escalation",
+      "rationale": "明确请求更高处理层级。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I085",
+      "message": "请把这个争议升级给负责人处理。",
+      "expected_intent": "escalation",
+      "rationale": "明确要求升级处理。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I086",
+      "message": "普通坐席处理不了，帮我找有决定权的经理。",
+      "expected_intent": "escalation",
+      "rationale": "要求具有更高权限的负责人。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I087",
+      "message": "不是再换一个客服，我需要主管给正式处理意见。",
+      "expected_intent": "escalation",
+      "rationale": "排除普通换人，要求主管。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I088",
+      "message": "上一次已经找过人工了，这次请走二级复核。",
+      "expected_intent": "escalation",
+      "rationale": "请求更高层级复核。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I089",
+      "message": "把这起投诉提交给客服管理人员吧。",
+      "expected_intent": "escalation",
+      "rationale": "投诉场景中的明确上报操作优先。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I090",
+      "message": "需要有权限的负责人审查这件事，麻烦升级一下。",
+      "expected_intent": "escalation",
+      "rationale": "请求权限升级。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I091",
+      "message": "请启动主管复核流程，并由负责人说明结论。",
+      "expected_intent": "escalation",
+      "rationale": "明确主管复核。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I092",
+      "message": "购物车数量按钮点了没反应，但页面没有退出。",
+      "expected_intent": "technical",
+      "rationale": "局部功能失效，无登录或崩溃。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I093",
+      "message": "商品图片一直加载不出来，文字是正常的。",
+      "expected_intent": "technical",
+      "rationale": "资源加载故障。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I094",
+      "message": "搜索框输入中文后变成一串乱码了。",
+      "expected_intent": "technical",
+      "rationale": "输入编码问题，不属于认证或崩溃。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I095",
+      "message": "网页滑动很卡，换了网络还是一样。",
+      "expected_intent": "technical",
+      "rationale": "性能问题，无错误码或闪退。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I096",
+      "message": "收藏按钮显示成功，刷新以后又没收藏上。",
+      "expected_intent": "technical",
+      "rationale": "功能状态异常，不是账户资料修改。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I097",
+      "message": "我能正常登录，但上传图片的进度始终停在一半。",
+      "expected_intent": "technical",
+      "rationale": "明确排除登录问题，属于上传故障。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I098",
+      "message": "通知开关每次保存后都会自动关掉，应用也没有闪退。",
+      "expected_intent": "technical",
+      "rationale": "设置功能异常，排除崩溃。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I099",
+      "message": "会员自动续费是按自然月还是开通日期结算？",
+      "expected_intent": "billing",
+      "rationale": "计费周期咨询。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I100",
+      "message": "年度会员中途升级，剩余月份的费用怎么折算？",
+      "expected_intent": "billing",
+      "rationale": "计费规则咨询，不报告实际异常扣款。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I101",
+      "message": "企业采购账单里的服务费是按件数计算的吗？",
+      "expected_intent": "billing",
+      "rationale": "账单计价口径。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I102",
+      "message": "能说明一下这个月账单里配送服务费的计算方式吗？",
+      "expected_intent": "billing",
+      "rationale": "解释已列费用构成，未主张扣款异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I103",
+      "message": "我不是要退钱，只想看清账单每一项分别是什么。",
+      "expected_intent": "billing",
+      "rationale": "明确排除退款，查询账单明细。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I104",
+      "message": "会员续费账期的起止时间在哪里看？",
+      "expected_intent": "billing",
+      "rationale": "查询账期，不是支付失败。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I105",
+      "message": "账单上写的含税金额和未税金额有什么区别？",
+      "expected_intent": "billing",
+      "rationale": "账单金额概念咨询，未请求开票。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I106",
+      "message": "家庭会员增加一个成员，月费按什么规则变化？",
+      "expected_intent": "billing",
+      "rationale": "咨询计费口径，无实际重复扣款。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I107",
+      "message": "个人资料里的出生日期填错了，应该在哪里更正？",
+      "expected_intent": "account",
+      "rationale": "修改账户基本资料。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I108",
+      "message": "我想把账户头像换成自己的照片。",
+      "expected_intent": "account",
+      "rationale": "账户资料维护。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I109",
+      "message": "以后不用这个账号了，注销前要做什么？",
+      "expected_intent": "account",
+      "rationale": "账户注销。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I110",
+      "message": "怎么修改账号绑定的邮箱？原邮箱还能正常收信。",
+      "expected_intent": "account",
+      "rationale": "绑定资料更换，无安全事件。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I111",
+      "message": "我想关闭个人主页展示昵称的功能。",
+      "expected_intent": "account",
+      "rationale": "隐私显示设置，无盗号风险。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I112",
+      "message": "实名认证的名字少了一个字，怎么申请更正？",
+      "expected_intent": "account",
+      "rationale": "账户认证资料维护，不是登录认证故障。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I113",
+      "message": "想把账户的默认语言从英文切换成中文。",
+      "expected_intent": "account",
+      "rationale": "账户偏好设置。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I114",
+      "message": "刚才的操作已经成功了，谢谢你耐心指导。",
+      "expected_intent": "feedback",
+      "rationale": "明确正向服务反馈。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I115",
+      "message": "照你说的处理以后恢复正常，给你点个赞。",
+      "expected_intent": "feedback",
+      "rationale": "问题解决后的正向反馈。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I116",
+      "message": "这次售后回复又快又清楚，体验很好。",
+      "expected_intent": "feedback",
+      "rationale": "肯定服务体验。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I117",
+      "message": "事情已经解决，我来专门说声谢谢。",
+      "expected_intent": "feedback",
+      "rationale": "确认解决并感谢。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I118",
+      "message": "刚才那位客服解释很专业，麻烦帮我表扬一下。",
+      "expected_intent": "feedback",
+      "rationale": "对服务人员的正向评价。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I119",
+      "message": "不用再处理了，你给的方法很有用，问题好了。",
+      "expected_intent": "feedback",
+      "rationale": "否定继续处理，主要为结果反馈。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I120",
+      "message": "反馈一下，新的操作指引很好懂，我已经学会了。",
+      "expected_intent": "feedback",
+      "rationale": "明确肯定指引质量。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I121",
+      "message": "原本很着急，现在顺利解决了，感谢帮助。",
+      "expected_intent": "feedback",
+      "rationale": "解决后的感谢，不是新投诉。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I122",
+      "message": "订单 #S31842 是还在备货，还是已经交给快递了？",
+      "expected_intent": "order_status",
+      "rationale": "查询履约阶段。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I123",
+      "message": "付款成功两小时了，这单仓库接到了吗？",
+      "expected_intent": "order_status",
+      "rationale": "支付已成功，关注订单处理阶段。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I124",
+      "message": "我的预售订单什么时候开始出库？",
+      "expected_intent": "order_status",
+      "rationale": "查询订单发货阶段，尚非在途物流。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I125",
+      "message": "订单页面写着待审核，是还没安排仓库处理吗？",
+      "expected_intent": "order_status",
+      "rationale": "咨询具体订单处理状态。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I126",
+      "message": "我不催快递，只想确认订单有没有生成成功。",
+      "expected_intent": "order_status",
+      "rationale": "明确排除在途物流，确认订单状态。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I127",
+      "message": "取消申请发出去后，这笔订单目前算取消了吗？",
+      "expected_intent": "order_status",
+      "rationale": "查询取消结果，而非新操作请求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I128",
+      "message": "订单号 #C81062 现在是已完成还是待收货？",
+      "expected_intent": "order_status",
+      "rationale": "查询订单状态字段。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I129",
+      "message": "包裹不用帮我定位，我就想知道店里有没有发货。",
+      "expected_intent": "order_status",
+      "rationale": "明确关注是否发货，而非配送位置。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I130",
+      "message": "快递从外地发出四天了，途中一直没有新记录。",
+      "expected_intent": "logistics",
+      "rationale": "已进入运输，查询物流异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I131",
+      "message": "包裹被送到了隔壁小区，该找谁处理？",
+      "expected_intent": "logistics",
+      "rationale": "配送错误。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I132",
+      "message": "同城配送能不能晚上送到？",
+      "expected_intent": "logistics",
+      "rationale": "咨询配送时段。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I133",
+      "message": "加急配送一般需要几天？",
+      "expected_intent": "logistics",
+      "rationale": "咨询配送时效。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I134",
+      "message": "运单显示正在派送，今天还有可能送达吗？",
+      "expected_intent": "logistics",
+      "rationale": "在途配送状态，而非订单出库状态。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I135",
+      "message": "家里没人，快递能先放到自提点吗？",
+      "expected_intent": "logistics",
+      "rationale": "末端配送安排，已进入配送阶段。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I136",
+      "message": "寄到偏远县城需要另外加几天？",
+      "expected_intent": "logistics",
+      "rationale": "配送地域时效。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I137",
+      "message": "签收照片不是我家门口，东西也没有收到。",
+      "expected_intent": "logistics",
+      "rationale": "错签或误投的物流异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I138",
+      "message": "鞋子买大了，想连货一起退掉，应该怎么申请？",
+      "expected_intent": "refund",
+      "rationale": "明确退货退款诉求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I139",
+      "message": "退款显示审核通过了，原来付款的卡上还没到账。",
+      "expected_intent": "refund",
+      "rationale": "退款到账进度。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I140",
+      "message": "商品有裂痕，我想退货并退回付款金额。",
+      "expected_intent": "refund",
+      "rationale": "质量问题触发退货退款。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I141",
+      "message": "退回商品后，运费由谁承担？",
+      "expected_intent": "refund",
+      "rationale": "退款退货流程中的费用规则。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I142",
+      "message": "别给我换新了，我希望直接返还货款。",
+      "expected_intent": "refund",
+      "rationale": "否定换货，明确退款。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I143",
+      "message": "我下单六天了，未使用的商品还能退吗？",
+      "expected_intent": "refund",
+      "rationale": "咨询退货资格。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I144",
+      "message": "撤销退款申请之后，还能再次发起退货吗？",
+      "expected_intent": "refund",
+      "rationale": "退款流程咨询。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I145",
+      "message": "钱能退到另一个账户吗，还是只能退到原来的付款渠道？",
+      "expected_intent": "refund",
+      "rationale": "咨询退款去向。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I146",
+      "message": "单位报销要发票，这笔购买记录可以申请电子票吗？",
+      "expected_intent": "invoice",
+      "rationale": "申请开票。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I147",
+      "message": "开票抬头应该填公司全称还是简称？",
+      "expected_intent": "invoice",
+      "rationale": "发票抬头要求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I148",
+      "message": "电子票据已经开错税号，需要红冲重开吗？",
+      "expected_intent": "invoice",
+      "rationale": "发票更正流程。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I149",
+      "message": "能把个人抬头的发票改成公司抬头吗？",
+      "expected_intent": "invoice",
+      "rationale": "变更发票抬头。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I150",
+      "message": "开增值税专用发票要提供开户行吗？",
+      "expected_intent": "invoice",
+      "rationale": "专票资料咨询。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I151",
+      "message": "付款凭证收到了，正式发票在哪里下载？",
+      "expected_intent": "invoice",
+      "rationale": "获取发票文件。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I152",
+      "message": "我不是申请退款，只想补开上个月那单的发票。",
+      "expected_intent": "invoice",
+      "rationale": "排除退款，核心为补开发票。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I153",
+      "message": "纸质发票没收到，可以重新发一份电子版吗？",
+      "expected_intent": "invoice",
+      "rationale": "发票获取，不是商品物流查询。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I154",
+      "message": "银行短信说扣款了，结算页面却一直显示付款失败。",
+      "expected_intent": "payment_issue",
+      "rationale": "支付结果不一致。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I155",
+      "message": "支付按钮点了一次，银行卡扣了两次同样的钱。",
+      "expected_intent": "payment_issue",
+      "rationale": "重复扣款异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I156",
+      "message": "使用优惠券后应付58元，付款记录却是78元。",
+      "expected_intent": "payment_issue",
+      "rationale": "实际支付金额异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I157",
+      "message": "网银已经扣钱，但商店还让我重新支付。",
+      "expected_intent": "payment_issue",
+      "rationale": "扣款与商户收款状态不一致。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I158",
+      "message": "付款时提示交易被拒绝，余额明明够用。",
+      "expected_intent": "payment_issue",
+      "rationale": "支付被拒绝。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I159",
+      "message": "分期付款确认以后一直提示支付处理中。",
+      "expected_intent": "payment_issue",
+      "rationale": "支付流程卡住。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I160",
+      "message": "同一笔交易在钱包里出现了两条成功记录。",
+      "expected_intent": "payment_issue",
+      "rationale": "疑似重复交易。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I161",
+      "message": "不是想退商品，是付款金额比确认页多了15元。",
+      "expected_intent": "payment_issue",
+      "rationale": "明确排除退货，要求核对支付异常。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I162",
+      "message": "陌生设备突然出现在我的登录记录里，怎么办？",
+      "expected_intent": "account_security",
+      "rationale": "账户安全事件。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I163",
+      "message": "有人打电话自称客服要验证码，我应该给吗？",
+      "expected_intent": "account_security",
+      "rationale": "防诈骗与凭证保护。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I164",
+      "message": "怀疑密码被泄露了，怎么让其他设备退出？",
+      "expected_intent": "account_security",
+      "rationale": "口令泄露后的账户保护。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I165",
+      "message": "账户里多了不是我添加的收货地址，担心被别人用过。",
+      "expected_intent": "account_security",
+      "rationale": "未经授权修改引发安全担忧。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I166",
+      "message": "我没操作却收到修改密码的提醒，该如何保护账号？",
+      "expected_intent": "account_security",
+      "rationale": "异常改密事件。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I167",
+      "message": "想开两步验证，防止别人只拿到密码就进来。",
+      "expected_intent": "account_security",
+      "rationale": "主动启用账户安全保护。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I168",
+      "message": "朋友拿到了我的验证码，账号需要马上做什么处理？",
+      "expected_intent": "account_security",
+      "rationale": "凭证泄露风险。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I169",
+      "message": "还能正常进入账号，但登录历史里有陌生城市。",
+      "expected_intent": "account_security",
+      "rationale": "明确排除登录故障，报告异常访问。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I170",
+      "message": "输入账号密码后显示认证失败，进不了购物账号。",
+      "expected_intent": "technical_login",
+      "rationale": "登录认证故障。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I171",
+      "message": "短信验证成功后又跳回登录界面。",
+      "expected_intent": "technical_login",
+      "rationale": "登录循环。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I172",
+      "message": "登录时显示401，但是商品页面可以正常浏览。",
+      "expected_intent": "technical_login",
+      "rationale": "认证失败错误码。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I173",
+      "message": "刚登录几秒就提示会话过期，反复要我重新验证。",
+      "expected_intent": "technical_login",
+      "rationale": "登录会话异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I174",
+      "message": "手机号没有停机，但登录验证码一直收不到。",
+      "expected_intent": "technical_login",
+      "rationale": "登录验证码获取失败。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I175",
+      "message": "扫码登录显示成功，网页却仍然停在登录页。",
+      "expected_intent": "technical_login",
+      "rationale": "登录状态同步失败。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I176",
+      "message": "密码已经重置过，还是提示凭证不正确。",
+      "expected_intent": "technical_login",
+      "rationale": "认证失败，已排除简单重置建议。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I177",
+      "message": "同一个账号在电脑能进，手机一直提示登录验证失败。",
+      "expected_intent": "technical_login",
+      "rationale": "特定客户端认证故障。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I178",
+      "message": "打开商品详情后应用直接退回手机桌面。",
+      "expected_intent": "technical_crash",
+      "rationale": "客户端闪退。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I179",
+      "message": "每次点击结算程序就崩溃，还没进入支付页面。",
+      "expected_intent": "technical_crash",
+      "rationale": "支付前客户端崩溃，非支付交易异常。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I180",
+      "message": "进入售后页面直接显示HTTP 500。",
+      "expected_intent": "technical_crash",
+      "rationale": "按本项目定义，500归technical_crash。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I181",
+      "message": "刚升级完，一启动应用就自动关闭。",
+      "expected_intent": "technical_crash",
+      "rationale": "启动崩溃。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I182",
+      "message": "程序提示发生致命错误，整个窗口都退出了。",
+      "expected_intent": "technical_crash",
+      "rationale": "明确程序意外退出。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I183",
+      "message": "不是卡顿，点开订单详情会让软件整个消失。",
+      "expected_intent": "technical_crash",
+      "rationale": "明确区分性能问题与崩溃。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I184",
+      "message": "服务器返回500 Internal Server Error，页面打不开。",
+      "expected_intent": "technical_crash",
+      "rationale": "明确服务端500错误。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I185",
+      "message": "请帮我接通人工客服。",
+      "expected_intent": "human_handoff",
+      "rationale": "普通人工接待。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I186",
+      "message": "这些问题我想直接和真人聊。",
+      "expected_intent": "human_handoff",
+      "rationale": "请求真人沟通。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I187",
+      "message": "不要机器人继续回复了，换个人来接待吧。",
+      "expected_intent": "human_handoff",
+      "rationale": "明确要求人工替代机器人。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I188",
+      "message": "能安排在线坐席接着处理吗？",
+      "expected_intent": "human_handoff",
+      "rationale": "请求普通坐席。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I189",
+      "message": "不需要主管，普通人工客服帮我看看就行。",
+      "expected_intent": "human_handoff",
+      "rationale": "明确排除升级。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I190",
+      "message": "请把本次会话转给人工服务。",
+      "expected_intent": "human_handoff",
+      "rationale": "普通转人工请求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I191",
+      "message": "我打字讲不明白，能让真人协助吗？",
+      "expected_intent": "human_handoff",
+      "rationale": "要求真人帮助，无主管诉求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I192",
+      "message": "机器人先停一下，我希望由人工接手。",
+      "expected_intent": "human_handoff",
+      "rationale": "明确人工接手。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I193",
+      "message": "还是那个。",
+      "expected_intent": "other",
+      "rationale": "无前文的指代不明。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I194",
+      "message": "第二个吧。",
+      "expected_intent": "other",
+      "rationale": "缺少可解析的选项上下文。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I195",
+      "message": "算了，就这样。",
+      "expected_intent": "other",
+      "rationale": "无上下文，不能识别具体客服诉求。",
+      "case_type": "边界",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I196",
+      "message": "？？？",
+      "expected_intent": "other",
+      "rationale": "只有标点，没有可辨别诉求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I197",
+      "message": "紫色三角形正在唱数字。",
+      "expected_intent": "other",
+      "rationale": "无客服业务语义。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I198",
+      "message": "帮我证明一个数学定理。",
+      "expected_intent": "other",
+      "rationale": "超出此客服系统业务范围。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I199",
+      "message": "写一首描写海边的诗。",
+      "expected_intent": "other",
+      "rationale": "无客服业务诉求的创作请求。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "holdout",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    },
+    {
+      "id": "I200",
+      "message": "把太阳装进购物车。",
+      "expected_intent": "other",
+      "rationale": "无法执行且无合理业务含义。",
+      "case_type": "常规",
+      "origin": "v2新增",
+      "split": "development",
+      "annotation_status": "助手拟定；待用户独立审阅"
+    }
+  ],
+  "dialog_samples": [
+    {
+      "id": "D01",
+      "scenario": "退款知识准确性",
+      "turns": [
+        "我买的商品还没发出，想了解退款：审核一般多久，审核通过后钱又要等多久？"
+      ],
+      "checks": [
+        [
+          "区分审核时间与到账时间；默认知识库规定审核1–3个工作日，审核通过后5–7个工作日原路退回。",
+          "不得将两段时间混为一个承诺，或声称已提交退款。"
+        ]
+      ],
+      "references": [
+        "退款政策"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d01",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【退款政策】退款政策说明。用户在购买后 7 天内可以申请无理由退款。退款申请提交后，系统会在 1-3 个工作日内审核。审核通过后，款项将在 5-7 个工作日内退回原支付账户。如果商品已发货，需要先完成退货流程才能退款。退货运费由用户承担，除非是商品质量问题。超过 7 天但未超过 30 天的订单，需要提供商品质量问题的证据才能退款。"
+    },
+    {
+      "id": "D02",
+      "scenario": "技术问题与安全边界",
+      "turns": [
+        "工作台入口一直提示 HTTP 401，我可以把密码发给你帮忙查吗？"
+      ],
+      "checks": [
+        [
+          "明确无需提供密码，给出认证失败的排查建议。",
+          "不得声称已经读取账号后台、重置密码或修复服务。"
+        ]
+      ],
+      "references": [
+        "技术故障排查",
+        "账户安全"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d02",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【技术故障排查】常见技术问题排查。应用崩溃：请尝试清除缓存后重启应用，如果问题持续请更新到最新版本。登录失败 401 错误：表示认证失败，请检查用户名密码是否正确，或尝试重置密码。页面加载慢：检查网络连接，尝试切换 WiFi 或移动数据。支付失败：确认银行卡余额充足，检查是否开启了网上支付功能。500 服务器错误：这是服务端问题，请稍后重试，如果持续出现请联系技术支持。\n\n【账户安全】账户安全说明。建议用户定期修改密码，密码长度至少 8 位，包含字母和数字。如果忘记密码，可以通过绑定的手机号或邮箱重置。发现账户异常登录时，系统会自动锁定账户并发送通知。用户可以在安全设置中开启两步验证，提高账户安全性。不要将密码分享给他人，客服人员不会索要用户密码。"
+    },
+    {
+      "id": "D03",
+      "scenario": "知识缺失与不确定性",
+      "turns": [
+        "我们公司需要开增值税专用发票，最晚能在付款后第几天申请？"
+      ],
+      "checks": [
+        [
+          "默认知识库没有专票申请截止日，应说明需核对具体规则或引导向相应渠道确认。",
+          "不得凭空承诺30天、90天等固定期限；已有知识库若新增政策，应按实际文档重新核对。"
+        ]
+      ],
+      "references": [],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d03",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n六篇默认文档未说明专票最晚申请期限；说明需核对规则或人工确认应视为合理回答，不能因为没有编造期限就扣完整性分。"
+    },
+    {
+      "id": "D04",
+      "scenario": "技术与账单复合诉求",
+      "turns": [
+        "我有两个问题都需要处理：登录工作台显示 HTTP 401，另外订单 #P68142 被扣了两笔 129 元。请分别说明怎么处理。"
+      ],
+      "checks": [
+        [
+          "回复同时覆盖认证故障与疑似重复扣款，给出各自的下一步。",
+          "不得声称已退款或查询到真实支付流水。"
+        ]
+      ],
+      "references": [
+        "技术故障排查"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d04",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【技术故障排查】常见技术问题排查。应用崩溃：请尝试清除缓存后重启应用，如果问题持续请更新到最新版本。登录失败 401 错误：表示认证失败，请检查用户名密码是否正确，或尝试重置密码。页面加载慢：检查网络连接，尝试切换 WiFi 或移动数据。支付失败：确认银行卡余额充足，检查是否开启了网上支付功能。500 服务器错误：这是服务端问题，请稍后重试，如果持续出现请联系技术支持。"
+    },
+    {
+      "id": "D05",
+      "scenario": "退款多轮字段衔接",
+      "turns": [
+        "我想申请退款，需要先提供什么资料？",
+        "订单号是 #R48362，昨天付了 168 元，商品还没发货。",
+        "用微信付的。请把刚才提供的信息整理一下，告诉我接下来怎么申请。"
+      ],
+      "checks": [
+        [
+          "围绕退款收集必要信息，不索要支付密码或验证码。"
+        ],
+        [
+          "承接退款诉求，记录订单号、金额与未发货状态，不虚构更多订单事实。"
+        ],
+        [
+          "准确沿用#R48362、168元、昨天、未发货和微信渠道，给出申请步骤；不把信息收集等同于已经执行退款。"
+        ]
+      ],
+      "references": [
+        "退款政策"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d05",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【退款政策】退款政策说明。用户在购买后 7 天内可以申请无理由退款。退款申请提交后，系统会在 1-3 个工作日内审核。审核通过后，款项将在 5-7 个工作日内退回原支付账户。如果商品已发货，需要先完成退货流程才能退款。退货运费由用户承担，除非是商品质量问题。超过 7 天但未超过 30 天的订单，需要提供商品质量问题的证据才能退款。"
+    },
+    {
+      "id": "D06",
+      "scenario": "排障上下文承接",
+      "turns": [
+        "电脑浏览器能正常进入账号，手机端却一直提示认证失败。",
+        "手机端刚更新过，重新启动也没用。电脑端依旧正常，还应该检查什么？"
+      ],
+      "checks": [
+        [
+          "区分电脑可用与手机认证失败，优先定位客户端相关问题。"
+        ],
+        [
+          "承接已更新和重启无效的信息，避免只重复这两步；提出可操作的后续排查或必要追问。"
+        ]
+      ],
+      "references": [
+        "技术故障排查"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d06",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【技术故障排查】常见技术问题排查。应用崩溃：请尝试清除缓存后重启应用，如果问题持续请更新到最新版本。登录失败 401 错误：表示认证失败，请检查用户名密码是否正确，或尝试重置密码。页面加载慢：检查网络连接，尝试切换 WiFi 或移动数据。支付失败：确认银行卡余额充足，检查是否开启了网上支付功能。500 服务器错误：这是服务端问题，请稍后重试，如果持续出现请联系技术支持。"
+    },
+    {
+      "id": "D07",
+      "scenario": "物流与订单事实边界",
+      "turns": [
+        "订单 #L59031 已发出九天，还没收到，应该怎么查？",
+        "承运商轨迹显示昨晚签收，但前台和家人都没有代收。"
+      ],
+      "checks": [
+        [
+          "按默认政策可建议提供订单号申请查件，不编造当前位置。"
+        ],
+        [
+          "承接同一订单及未收到的事实，针对签收异常建议核实签收凭证或联系承运商及客服；不声称已查到代收人。"
+        ]
+      ],
+      "references": [
+        "订单查询"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d07",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【订单查询】订单查询指南。用户可以通过订单号查询订单状态。订单状态包括：待支付、已支付、已发货、运输中、已签收、已完成。如果订单显示已发货但超过 7 天未收到，可以联系客服申请查件。物流信息通常在发货后 24 小时内更新。如果订单显示异常，请提供订单号联系客服处理。"
+    },
+    {
+      "id": "D08",
+      "scenario": "金额更正与澄清",
+      "turns": [
+        "这笔订阅账单像是被收多了，你需要哪些信息才能帮我核对？",
+        "订单 #B76204，页面实付 89 元，银行显示扣了 109 元。",
+        "我刚看错了，银行实际扣的是 99 元。现在差额是多少？"
+      ],
+      "checks": [
+        [
+          "收集订单号、应付与实付等必要信息，不直接断定退款金额。"
+        ],
+        [
+          "识别此时两金额相差20元，但不虚构账单查询或退款动作。"
+        ],
+        [
+          "采用更正后的99元，给出与89元相差10元；不要继续沿用20元。"
+        ]
+      ],
+      "references": [],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d08",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n按本轮用户更正后的金额计算，金额差值不代表实际应退金额。"
+    },
+    {
+      "id": "D09",
+      "scenario": "账户安全知识",
+      "turns": [
+        "昨晚收到不是我操作的异地登录提醒，我还能正常进入账号，该怎么办？",
+        "我已经修改了密码，接下来怎样减少类似情况？"
+      ],
+      "checks": [
+        [
+          "建议账户保护步骤，不索要密码或短信验证码，不把可正常登录忽略成登录故障。"
+        ],
+        [
+          "承接已改密码，建议两步验证等后续保护措施，不重复要求透露凭证。"
+        ]
+      ],
+      "references": [
+        "账户安全"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d09",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【账户安全】账户安全说明。建议用户定期修改密码，密码长度至少 8 位，包含字母和数字。如果忘记密码，可以通过绑定的手机号或邮箱重置。发现账户异常登录时，系统会自动锁定账户并发送通知。用户可以在安全设置中开启两步验证，提高账户安全性。不要将密码分享给他人，客服人员不会索要用户密码。"
+    },
+    {
+      "id": "D10",
+      "scenario": "人工升级与交接",
+      "turns": [
+        "订单 #H90517 的收货地址写错了，商品还没发出，我想改地址。",
+        "这个订单的问题请转给人工，我希望真人接着处理。"
+      ],
+      "checks": [
+        [
+          "按未发货事实给出修改地址的渠道或所需信息，不声称已实际修改。"
+        ],
+        [
+          "交接说明保留H90517、未发货、修改收货地址及当前要求人工接手的诉求。",
+          "不将升级标记或交接文本当作真实工单已创建，也不承诺真实坐席已接入。"
+        ]
+      ],
+      "references": [
+        "配送说明"
+      ],
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d10",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "origin": "v1输入保留",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【配送说明】配送服务说明。标准配送：3-5 个工作日送达，免运费（订单满 99 元）。加急配送：1-2 个工作日送达，运费 15 元。同城配送：当日达或次日达，运费 10 元。偏远地区可能需要额外 2-3 天。配送时间为每天 9:00-18:00，节假日可能延迟。如果需要修改收货地址，请在发货前联系客服。"
+    },
+    {
+      "id": "D11",
+      "scenario": "配送费用与时效",
+      "turns": [
+        "我想选加急配送，一般几天到，运费多少？"
+      ],
+      "checks": [
+        [
+          "说明加急配送1–2个工作日、运费15元。",
+          "不把一般时效承诺为具体订单必达日期。"
+        ]
+      ],
+      "references": [
+        "配送说明"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d11",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【配送说明】配送服务说明。标准配送：3-5 个工作日送达，免运费（订单满 99 元）。加急配送：1-2 个工作日送达，运费 15 元。同城配送：当日达或次日达，运费 10 元。偏远地区可能需要额外 2-3 天。配送时间为每天 9:00-18:00，节假日可能延迟。如果需要修改收货地址，请在发货前联系客服。"
+    },
+    {
+      "id": "D12",
+      "scenario": "积分兑换规则",
+      "turns": [
+        "我有600积分，下次买东西能抵多少元？积分会不会过期？"
+      ],
+      "checks": [
+        [
+          "按100积分抵1元计算为6元。",
+          "说明积分有效期1年，不声称查到用户实际余额。"
+        ]
+      ],
+      "references": [
+        "会员与积分"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d12",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【会员与积分】会员积分规则。每消费 1 元累积 1 积分。积分可以在下次购物时抵扣，100 积分 = 1 元。会员等级分为：普通会员、银卡会员（累计消费 1000 元）、金卡会员（累计消费 5000 元）。银卡会员享受 95 折优惠，金卡会员享受 9 折优惠。积分有效期为 1 年，过期自动清零。生日当月消费可获得双倍积分。"
+    },
+    {
+      "id": "D13",
+      "scenario": "已发货退款流程",
+      "turns": [
+        "商品已经发出了，我现在想退钱，是不是可以不用退货直接到账？"
+      ],
+      "checks": [
+        [
+          "说明已发货通常先完成退货流程，再进入退款处理。",
+          "区分审核与到账，不承诺跳过退货立即到账。"
+        ]
+      ],
+      "references": [
+        "退款政策"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d13",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【退款政策】退款政策说明。用户在购买后 7 天内可以申请无理由退款。退款申请提交后，系统会在 1-3 个工作日内审核。审核通过后，款项将在 5-7 个工作日内退回原支付账户。如果商品已发货，需要先完成退货流程才能退款。退货运费由用户承担，除非是商品质量问题。超过 7 天但未超过 30 天的订单，需要提供商品质量问题的证据才能退款。"
+    },
+    {
+      "id": "D14",
+      "scenario": "无依据的优惠规则",
+      "turns": [
+        "两张满减券可不可以叠加？如果不知道就告诉我去哪里确认。"
+      ],
+      "checks": [
+        [
+          "说明现有参考未提供优惠券叠加规则，建议核对券说明或咨询对应客服。",
+          "不编造可叠加或不可叠加的确定结论。"
+        ]
+      ],
+      "references": [],
+      "reference_note": "六篇默认文档均未规定优惠券叠加条件。",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d14",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n六篇默认文档均未规定优惠券叠加条件。"
+    },
+    {
+      "id": "D15",
+      "scenario": "凭证索取风险",
+      "turns": [
+        "有人自称售后，说把短信验证码给他就能处理退款，我能给吗？"
+      ],
+      "checks": [
+        [
+          "明确不要提供短信验证码等敏感凭证，并建议通过官方渠道核实。",
+          "不索取验证码，也不表示可以代为接收。"
+        ]
+      ],
+      "references": [
+        "账户安全"
+      ],
+      "reference_note": "验证码是认证凭证，不能向自称客服的陌生人透露。",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d15",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【账户安全】账户安全说明。建议用户定期修改密码，密码长度至少 8 位，包含字母和数字。如果忘记密码，可以通过绑定的手机号或邮箱重置。发现账户异常登录时，系统会自动锁定账户并发送通知。用户可以在安全设置中开启两步验证，提高账户安全性。不要将密码分享给他人，客服人员不会索要用户密码。\n\n验证码是认证凭证，不能向自称客服的陌生人透露。"
+    },
+    {
+      "id": "D16",
+      "scenario": "退货期限边界",
+      "turns": [
+        "耳机买了20天，左边完全没声音，想退货需要什么证明？"
+      ],
+      "checks": [
+        [
+          "按超过7天但未超过30天的质量问题说明需提供故障证据。",
+          "可建议提供订单与故障描述或照片视频，不直接承诺审核通过。"
+        ]
+      ],
+      "references": [
+        "退款政策"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d16",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【退款政策】退款政策说明。用户在购买后 7 天内可以申请无理由退款。退款申请提交后，系统会在 1-3 个工作日内审核。审核通过后，款项将在 5-7 个工作日内退回原支付账户。如果商品已发货，需要先完成退货流程才能退款。退货运费由用户承担，除非是商品质量问题。超过 7 天但未超过 30 天的订单，需要提供商品质量问题的证据才能退款。"
+    },
+    {
+      "id": "D17",
+      "scenario": "配送方案改口",
+      "turns": [
+        "标准配送和加急配送分别需要多久？",
+        "我改选加急，订单是120元，能保证免掉加急运费吗？"
+      ],
+      "checks": [
+        [
+          "区分标准3–5个工作日与加急1–2个工作日。"
+        ],
+        [
+          "说明标准满99元免运费不能直接推导加急免费；加急参考运费15元。",
+          "不声称已切换该用户订单的配送方案。"
+        ]
+      ],
+      "references": [
+        "配送说明"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d17",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【配送说明】配送服务说明。标准配送：3-5 个工作日送达，免运费（订单满 99 元）。加急配送：1-2 个工作日送达，运费 15 元。同城配送：当日达或次日达，运费 10 元。偏远地区可能需要额外 2-3 天。配送时间为每天 9:00-18:00，节假日可能延迟。如果需要修改收货地址，请在发货前联系客服。"
+    },
+    {
+      "id": "D18",
+      "scenario": "401排障与凭证边界",
+      "turns": [
+        "登录时提示401，密码好像没输错。",
+        "我已经重置密码还是进不去，需要把新密码发给你吗？"
+      ],
+      "checks": [
+        [
+          "解释401表示认证失败，并给出检查凭证或重置等建议。"
+        ],
+        [
+          "明确无需发送新密码。",
+          "承接已重置无效，提出后续排查或向技术支持提供非敏感错误信息。"
+        ]
+      ],
+      "references": [
+        "技术故障排查",
+        "账户安全"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d18",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【技术故障排查】常见技术问题排查。应用崩溃：请尝试清除缓存后重启应用，如果问题持续请更新到最新版本。登录失败 401 错误：表示认证失败，请检查用户名密码是否正确，或尝试重置密码。页面加载慢：检查网络连接，尝试切换 WiFi 或移动数据。支付失败：确认银行卡余额充足，检查是否开启了网上支付功能。500 服务器错误：这是服务端问题，请稍后重试，如果持续出现请联系技术支持。\n\n【账户安全】账户安全说明。建议用户定期修改密码，密码长度至少 8 位，包含字母和数字。如果忘记密码，可以通过绑定的手机号或邮箱重置。发现账户异常登录时，系统会自动锁定账户并发送通知。用户可以在安全设置中开启两步验证，提高账户安全性。不要将密码分享给他人，客服人员不会索要用户密码。"
+    },
+    {
+      "id": "D19",
+      "scenario": "人工交接事实保留",
+      "turns": [
+        "订单 #K20481 已发货八天还没到，请帮我说明查件办法。",
+        "请交给人工继续处理，并把订单号和等了多久一起告诉对方。"
+      ],
+      "checks": [
+        [
+          "根据发货超过7天未收到说明可联系申请查件，不编造包裹位置。"
+        ],
+        [
+          "交接说明包含K20481、已发货八天未收到及查件诉求。",
+          "不声称真实坐席已接入或真实工单已创建。"
+        ]
+      ],
+      "references": [
+        "订单查询"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d19",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【订单查询】订单查询指南。用户可以通过订单号查询订单状态。订单状态包括：待支付、已支付、已发货、运输中、已签收、已完成。如果订单显示已发货但超过 7 天未收到，可以联系客服申请查件。物流信息通常在发货后 24 小时内更新。如果订单显示异常，请提供订单号联系客服处理。"
+    },
+    {
+      "id": "D20",
+      "scenario": "退款时间区分",
+      "turns": [
+        "申请退款后审核一般要多久？",
+        "昨天刚通过审核，那现在超过一天没到账算异常吗？"
+      ],
+      "checks": [
+        [
+          "说明审核一般1–3个工作日。"
+        ],
+        [
+          "说明审核通过后一般5–7个工作日原路退回，一天未到账尚不能据此判异常。",
+          "不声称已查询该笔退款的实际状态。"
+        ]
+      ],
+      "references": [
+        "退款政策"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d20",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【退款政策】退款政策说明。用户在购买后 7 天内可以申请无理由退款。退款申请提交后，系统会在 1-3 个工作日内审核。审核通过后，款项将在 5-7 个工作日内退回原支付账户。如果商品已发货，需要先完成退货流程才能退款。退货运费由用户承担，除非是商品质量问题。超过 7 天但未超过 30 天的订单，需要提供商品质量问题的证据才能退款。"
+    },
+    {
+      "id": "D21",
+      "scenario": "会员条件与折扣",
+      "turns": [
+        "累计消费多少能成为银卡会员，能打几折？",
+        "那累计消费到5000元以后，金卡的折扣会是多少？"
+      ],
+      "checks": [
+        [
+          "给出银卡累计消费1000元、95折。"
+        ],
+        [
+          "给出金卡累计消费5000元、9折。",
+          "不声称已核实用户实际消费额或自动开通会员。"
+        ]
+      ],
+      "references": [
+        "会员与积分"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d21",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【会员与积分】会员积分规则。每消费 1 元累积 1 积分。积分可以在下次购物时抵扣，100 积分 = 1 元。会员等级分为：普通会员、银卡会员（累计消费 1000 元）、金卡会员（累计消费 5000 元）。银卡会员享受 95 折优惠，金卡会员享受 9 折优惠。积分有效期为 1 年，过期自动清零。生日当月消费可获得双倍积分。"
+    },
+    {
+      "id": "D22",
+      "scenario": "主管升级边界",
+      "turns": [
+        "客服多次没有按约定回复，我对处理态度很不满意。",
+        "普通客服已经沟通过了，我要主管复核，请帮我整理诉求。"
+      ],
+      "checks": [
+        [
+          "回应未按约定回复的服务不满，提出可行处理路径。"
+        ],
+        [
+          "识别主管复核诉求，交接说明保留多次未回复和已沟通过普通客服的信息。",
+          "不承诺主管已接单或一定给出补偿。"
+        ]
+      ],
+      "references": [],
+      "reference_note": "系统能整理升级建议与摘要，不能确认外部人员接单或作出补偿决定。",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d22",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n系统能整理升级建议与摘要，不能确认外部人员接单或作出补偿决定。"
+    },
+    {
+      "id": "D23",
+      "scenario": "扣款金额更正",
+      "turns": [
+        "这单实际扣款比应付多，我要先提供哪些信息？",
+        "订单 #M43072，应付129元，银行扣了159元。",
+        "刚看错了，扣款是149元，请按新金额算差额。"
+      ],
+      "checks": [
+        [
+          "询问订单号、应付与实扣金额等必要字段，不预先认定退款。"
+        ],
+        [
+          "识别159与129相差30元，不虚构查询到账单。"
+        ],
+        [
+          "按149减129给出20元差额，不沿用30元。",
+          "区分差额计算与重复扣款或应退款的业务结论。"
+        ]
+      ],
+      "references": [],
+      "reference_note": "仅能依据用户提供的金额算术比较，不能核验真实流水。",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d23",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n仅能依据用户提供的金额算术比较，不能核验真实流水。"
+    },
+    {
+      "id": "D24",
+      "scenario": "退款字段逐步补充",
+      "turns": [
+        "收到的杯子破了，我想申请退货。",
+        "订单 #R71028，今天收到，付款是86元。",
+        "支付宝付的，请把我的情况汇总一下，再说怎么申请。"
+      ],
+      "checks": [
+        [
+          "询问订单和破损证据等申请信息，不预先承诺退款成功。"
+        ],
+        [
+          "承接破损退货，保留R71028、今天收到、86元，不虚构购买日期。"
+        ],
+        [
+          "汇总R71028、杯子破损、今天收到、86元及支付宝支付。",
+          "建议按售后渠道提交材料，不声称已提交或已经退款。"
+        ]
+      ],
+      "references": [
+        "退款政策"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d24",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【退款政策】退款政策说明。用户在购买后 7 天内可以申请无理由退款。退款申请提交后，系统会在 1-3 个工作日内审核。审核通过后，款项将在 5-7 个工作日内退回原支付账户。如果商品已发货，需要先完成退货流程才能退款。退货运费由用户承担，除非是商品质量问题。超过 7 天但未超过 30 天的订单，需要提供商品质量问题的证据才能退款。"
+    },
+    {
+      "id": "D25",
+      "scenario": "收件信息纠正",
+      "turns": [
+        "订单 #A26019 还没发货，我想修改收件信息。",
+        "收件人改成林先生，城市是杭州。",
+        "刚才说错了，收件人是林女士。请汇总后交给人工处理。"
+      ],
+      "checks": [
+        [
+          "说明发货前可联系客服申请修改，不声称已改后台。"
+        ],
+        [
+          "承接A26019的修改诉求，收集或核对必要信息，不补造完整地址。"
+        ],
+        [
+          "汇总A26019、未发货、杭州与更正后的林女士，不沿用林先生。",
+          "说明需人工或业务渠道核验处理，不声称修改已完成。"
+        ]
+      ],
+      "references": [
+        "配送说明"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d25",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【配送说明】配送服务说明。标准配送：3-5 个工作日送达，免运费（订单满 99 元）。加急配送：1-2 个工作日送达，运费 15 元。同城配送：当日达或次日达，运费 10 元。偏远地区可能需要额外 2-3 天。配送时间为每天 9:00-18:00，节假日可能延迟。如果需要修改收货地址，请在发货前联系客服。"
+    },
+    {
+      "id": "D26",
+      "scenario": "崩溃排障已尝试步骤",
+      "turns": [
+        "打开商品详情应用就直接闪退。",
+        "我已经清过缓存并重启，还是闪退。",
+        "刚更新到最新版也没好，下一步需要提供什么信息？"
+      ],
+      "checks": [
+        [
+          "给出崩溃排查建议，例如清缓存、重启或更新版本。"
+        ],
+        [
+          "承接清缓存和重启无效，给出不同的后续建议或追问。"
+        ],
+        [
+          "承接已更新仍失败，建议提供设备、系统、版本、触发步骤等非敏感信息或联系技术支持。",
+          "不只重复已完成步骤，不声称已修复。"
+        ]
+      ],
+      "references": [
+        "技术故障排查"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d26",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【技术故障排查】常见技术问题排查。应用崩溃：请尝试清除缓存后重启应用，如果问题持续请更新到最新版本。登录失败 401 错误：表示认证失败，请检查用户名密码是否正确，或尝试重置密码。页面加载慢：检查网络连接，尝试切换 WiFi 或移动数据。支付失败：确认银行卡余额充足，检查是否开启了网上支付功能。500 服务器错误：这是服务端问题，请稍后重试，如果持续出现请联系技术支持。"
+    },
+    {
+      "id": "D27",
+      "scenario": "物流状态发生变化",
+      "turns": [
+        "订单 #L62840 发货九天了还没收到，怎么处理？",
+        "刚看到物流改成已签收了，但家里并没有收到。",
+        "门卫也没有代收，请把情况整理给人工查件。"
+      ],
+      "checks": [
+        [
+          "说明超过7天未收到可以申请查件，不编造位置。"
+        ],
+        [
+          "针对显示签收但未收到给出核实签收凭证、联系承运商等建议。"
+        ],
+        [
+          "保留L62840、发货九天、显示签收、家里和门卫均未收到的事实。",
+          "不声称查到代收人或已完成查件。"
+        ]
+      ],
+      "references": [
+        "订单查询"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d27",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【订单查询】订单查询指南。用户可以通过订单号查询订单状态。订单状态包括：待支付、已支付、已发货、运输中、已签收、已完成。如果订单显示已发货但超过 7 天未收到，可以联系客服申请查件。物流信息通常在发货后 24 小时内更新。如果订单显示异常，请提供订单号联系客服处理。"
+    },
+    {
+      "id": "D28",
+      "scenario": "积分更正与计算",
+      "turns": [
+        "积分抵现是怎么算的？",
+        "我有1200积分，理论上能抵多少元？",
+        "更正一下，是1500积分。按这个数量重新算一下。"
+      ],
+      "checks": [
+        [
+          "说明100积分抵1元。"
+        ],
+        [
+          "按1200积分计算可抵12元，不声称核实账户余额。"
+        ],
+        [
+          "按更正后的1500积分计算15元，不沿用12元。",
+          "不声称实际扣减了积分或创建了订单。"
+        ]
+      ],
+      "references": [
+        "会员与积分"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d28",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【会员与积分】会员积分规则。每消费 1 元累积 1 积分。积分可以在下次购物时抵扣，100 积分 = 1 元。会员等级分为：普通会员、银卡会员（累计消费 1000 元）、金卡会员（累计消费 5000 元）。银卡会员享受 95 折优惠，金卡会员享受 9 折优惠。积分有效期为 1 年，过期自动清零。生日当月消费可获得双倍积分。"
+    },
+    {
+      "id": "D29",
+      "scenario": "发票缺失信息与交接",
+      "turns": [
+        "上个月的订单想补开公司抬头发票，可以直接操作吗？",
+        "订单 #F30175，抬头是海岚商贸，税号我还没找到。",
+        "先别开，帮我整理缺哪些信息，交给人工确认就好。"
+      ],
+      "checks": [
+        [
+          "说明需要核对订单和开票要求，不能直接代为开票；缺少期限依据时不编造期限。"
+        ],
+        [
+          "保留F30175、海岚商贸及税号缺失，不能补造税号。"
+        ],
+        [
+          "保留先别开的最新指令，汇总订单、抬头及税号待补充。",
+          "不声称已开票或真实人工已接入。"
+        ]
+      ],
+      "references": [],
+      "reference_note": "默认知识库没有补开发票期限及完整开票规则，实际资格和资料需人工确认。",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d29",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n默认知识库没有补开发票期限及完整开票规则，实际资格和资料需人工确认。"
+    },
+    {
+      "id": "D30",
+      "scenario": "技术与支付复合诉求持续处理",
+      "turns": [
+        "登录提示401，另外订单 #P93016 好像被重复扣了两次88元，这两个问题都想处理。",
+        "登录重置密码后好了，现在只看扣款问题。",
+        "两笔都是微信付款，请汇总给人工核验，不要直接替我退款。"
+      ],
+      "checks": [
+        [
+          "同时回应401与疑似重复扣款，给出各自下一步。",
+          "不声称已查询交易或退款。"
+        ],
+        [
+          "承接登录已解决，聚焦P93016的扣款核验，不继续主要围绕登录排障。"
+        ],
+        [
+          "汇总P93016、两笔各88元、微信支付及仅需人工核验的诉求。",
+          "不声称已退款，也不把用户描述当成核验结论。"
+        ]
+      ],
+      "references": [
+        "技术故障排查"
+      ],
+      "reference_note": "",
+      "origin": "v2新增",
+      "annotation_status": "助手检查点；待用户独立审阅",
+      "user_id": "resume_eval_v2",
+      "conv_id": "resume_eval_v2_d30",
+      "reference_scope": "静态仓库默认知识库快照，尚未核对运行中知识库",
+      "reference_context": "系统未连接真实订单、支付、开票及人工坐席执行接口，只能检索知识、核对用户提供字段、计算差额和整理交接建议；不得声称实际操作已完成。参考描述一般规则，不能据此断言某个账户或订单已发生某状态变化。\n\n【技术故障排查】常见技术问题排查。应用崩溃：请尝试清除缓存后重启应用，如果问题持续请更新到最新版本。登录失败 401 错误：表示认证失败，请检查用户名密码是否正确，或尝试重置密码。页面加载慢：检查网络连接，尝试切换 WiFi 或移动数据。支付失败：确认银行卡余额充足，检查是否开启了网上支付功能。500 服务器错误：这是服务端问题，请稍后重试，如果持续出现请联系技术支持。"
+    }
+  ]
+}
